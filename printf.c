@@ -37,8 +37,8 @@ int _printf(const char *format, ...)
 					while (*str)
 					{
 						write(1,&(*str), 1);
-						str++
-							printed_chars++;
+						str++;
+						printed_chars++;
 					}
 					break;
 				case '%':
