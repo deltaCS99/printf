@@ -73,6 +73,14 @@ int handle_int(va_list args)
 	int digits = count_digits(num);
 	int printed_chars = 0;
 
-	printed_chars += print_number(num, digits);
+	if (num == INT_MIN)
+	{
+		printed_chars += _printf("-2147483648");
+	}
+	else
+	{
+		printed_chars += print_number(num, digits);
+	}
+
 	return (printed_chars);
 }
