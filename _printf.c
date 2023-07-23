@@ -42,6 +42,10 @@ int _printf(const char *format, ...)
 			{
 				printed_chars += handler->handler(args);
 			}
+			else
+			{
+				return (-1);
+			}
 		}
 		else
 		{
