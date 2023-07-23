@@ -33,7 +33,7 @@ int handle_string(va_list args)
 		str++;
 	}
 
-	return (printed_chars - 1);
+	return (printed_chars);
 }
 
 /**
