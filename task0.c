@@ -29,10 +29,7 @@ int handle_string(va_list args)
 
 	while (*str)
 	{
-		if (*str >= 32 && *str <= 126)
-		{
-			printed_chars += _putchar(*str);
-		}
+		printed_chars += _putchar(*str);
 		str++;
 	}
 
