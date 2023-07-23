@@ -10,7 +10,7 @@ int handle_char(va_list args)
 {
 	char c = va_arg(args, int);
 
-	return (_putchar(c) - 1);
+	return (_putchar(c));
 }
 
 /**
@@ -45,5 +45,5 @@ int handle_string(va_list args)
 int handle_percent(va_list args)
 {
 	(void)args;
-	return (_putchar('%') - 1);
+	return (_putchar('%'));
 }
