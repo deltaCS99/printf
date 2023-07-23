@@ -14,13 +14,11 @@ int _printf(const char *format, ...)
 	char *str;
 
 	va_start(args, format);
-
 	while (*format)
 	{
 		if (*format != '%')
 		{
-			write(1, &(*format), 1);
-			printed_chars++;
+			printed_chars += _putchar(*format);
 		}
 		else
 		{
@@ -29,32 +27,25 @@ int _printf(const char *format, ...)
 			{
 				case 'c':
 					c = va_arg(args, int);
-					write(1, &c, 1);
-					printed_chars++;
+					printed_chars += _putchar(c);
 					break;
 				case 's':
 					str = va_arg(args, char*);
 					while (*str)
 					{
-						write(1,&(*str), 1);
+						printed_chars += _putchar(*str);
 						str++;
-						printed_chars++;
 					}
 					break;
 				case '%':
-					write(1, "%", 1);
-					printed_chars++;
-					break;	
+					printed_chars += _putchar('%');
+					break;
 				default:
-					write(1, "%", 1);
-					write(1, &(*format), 1);
-					printed_chars += 2;
 					break;
 			}
 		}
 		format++;
 	}
-
 	va_end(args);
 	return (printed_chars);
 }
