@@ -19,8 +19,9 @@ int _printf(const char *format, ...)
 	const conversion_handler_t *handler;
 	size_t i;
 
+	if (format == NULL)
+		return (-1);
 	va_start(args, format);
-
 	while (*format)
 	{
 		if (*format == '%')
@@ -38,12 +39,6 @@ int _printf(const char *format, ...)
 			if (handler)
 			{
 				printed_chars += handler->handler(args);
-			}
-			else
-			{
-				printed_chars += _putchar('%');
-				format++;
-				printed_chars += _putchar(*format);
 			}
 		}
 		else
