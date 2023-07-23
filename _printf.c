@@ -3,7 +3,9 @@
 static const conversion_handler_t handlers[] = {
 	{'c', handle_char},
 	{'s', handle_string},
-	{'%', handle_percent}
+	{'%', handle_percent},
+	{'d', handle_int},
+	{'i', handle_int}
 };
 
 /**

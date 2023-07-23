@@ -1,79 +1,42 @@
+#include <limits.h>
 #include <stdio.h>
-#include <string.h>
 #include "../main.h"
 
+/**
+ * main - Entry point
+ *
+ * Return: Always 0
+ */
 int main(void)
 {
-    int printed_chars;
-    char long_string[1025];
-    int num = 255;
+    int len;
+    int len2;
+    unsigned int ui;
+    void *addr;
 
-    
-    printf("Testing %%c:\n");
-    printed_chars = printf("Newline (printf): %c\n", '\n');
-    printf("Characters printed (printf): %d\n", printed_chars);
-    printed_chars = _printf("Newline (custom): %c\n", '\n');
-    printf("Characters printed (custom): %d\n", printed_chars);
-
-    printed_chars = printf("Tab (printf): %c\n", '\t');
-    printf("Characters printed (printf): %d\n", printed_chars);
-    printed_chars = _printf("Tab (custom): %c\n", '\t');
-    printf("Characters printed (custom): %d\n", printed_chars);
-
-    printed_chars = printf("Null Character (printf): %c\n", '\0');
-    printf("Characters printed (printf): %d\n", printed_chars);
-    printed_chars = _printf("Null Character (custom): %c\n", '\0');
-    printf("Characters printed (custom): %d\n", printed_chars);
-
-    printed_chars = printf("Backspace (printf): %c\n", '\b');
-    printf("Characters printed (printf): %d\n", printed_chars);
-    printed_chars = _printf("Backspace (custom): %c\n", '\b');
-    printf("Characters printed (custom): %d\n", printed_chars);
-
-    printed_chars = printf("Carriage Return (printf): %c\n", '\r');
-    printf("Characters printed (printf): %d\n", printed_chars);
-    printed_chars = _printf("Carriage Return (custom): %c\n", '\r');
-    printf("Characters printed (custom): %d\n", printed_chars);
-
-    printed_chars = printf("Escape Character (printf): %c\n", '\\');
-    printf("Characters printed (printf): %d\n", printed_chars);
-    printed_chars = _printf("Escape Character (custom): %c\n", '\\');
-    printf("Characters printed (custom): %d\n", printed_chars);
-
-  
-    printf("\nTesting %%s:\n");
-    printed_chars = printf("Empty String (printf): %s\n", "");
-    printf("Characters printed (printf): %d\n", printed_chars);
-    printed_chars = _printf("Empty String (custom): %s\n", "");
-    printf("Characters printed (custom): %d\n", printed_chars);
-
-    printed_chars = printf("Non-Printable String (printf): %s\n", "Hello\nWorld");
-    printf("Characters printed (printf): %d\n", printed_chars);
-    printed_chars = _printf("Non-Printable String (custom): %s\n", "Hello\nWorld");
-    printf("Characters printed (custom): %d\n", printed_chars);
-
-    
-    memset(long_string, 'A', 1024);
-    long_string[1024] = '\0';
-    printed_chars = printf("Long String (printf): %s\n", long_string);
-    printf("Characters printed (printf): %d\n", printed_chars);
-    printed_chars = _printf("Long String (custom): %s\n", long_string);
-    printf("Characters printed (custom): %d\n", printed_chars);
-
-    
-    printf("\nTesting %%%%:\n");
-    printed_chars = printf("Multiple %%%% (printf): %% %% %% %%\n");
-    printf("Characters printed (printf): %d\n", printed_chars);
-    printed_chars = _printf("Multiple %%%% (custom): %% %% %% %%\n");
-    printf("Characters printed (custom): %d\n", printed_chars);
-
-
-    printf("\nTesting custom conversion specifiers:\n");
-   
-    printed_chars = printf("Hexadecimal (printf): %x\n", num);
-    printf("Characters printed (printf): %d\n", printed_chars);
-    printed_chars = _printf("Hexadecimal (custom): %x\n", num);
-    printf("Characters printed (custom): %d\n", printed_chars);
+    len = _printf("Let's try to printf a simple sentence.\n");
+    len2 = printf("Let's try to printf a simple sentence.\n");
+    ui = (unsigned int)INT_MAX + 1024;
+    addr = (void *)0x7ffe637541f0;
+    _printf("Length:[%d, %i]\n", len, len);
+    printf("Length:[%d, %i]\n", len2, len2);
+    _printf("Negative:[%d]\n", -762534);
+    printf("Negative:[%d]\n", -762534);
+    _printf("Unsigned:[%u]\n", ui);
+    printf("Unsigned:[%u]\n", ui);
+    _printf("Unsigned octal:[%o]\n", ui);
+    printf("Unsigned octal:[%o]\n", ui);
+    _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+    printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+    _printf("Character:[%c]\n", 'H');
+    printf("Character:[%c]\n", 'H');
+    _printf("String:[%s]\n", "I am a string !");
+    printf("String:[%s]\n", "I am a string !");
+    _printf("Address:[%p]\n", addr);
+    printf("Address:[%p]\n", addr);
+    len = _printf("Percent:[%%]\n");
+    len2 = printf("Percent:[%%]\n");
+    _printf("Len:[%d]\n", len);
+    printf("Len:[%d]\n", len2);
     return (0);
 }
-

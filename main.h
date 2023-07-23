@@ -4,6 +4,8 @@
 #include <stdarg.h>
 #include <unistd.h>
 
+#define BUFF_SIZE 1024
+
 /**
  * struct format_handler - handler type
  * @specifier: specifier
@@ -22,6 +24,8 @@ int _putchar(char c);
 int handle_char(va_list args);
 int handle_string(va_list args);
 int handle_percent(va_list args);
+
+int handle_int(va_list args);
 
 int _printf(const char *format, ...);
 
